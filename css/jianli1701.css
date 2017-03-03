@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+}
+#big{
+    width: 900px;
+    background:  #0090ff;
+    height: 1100px;
+    margin: auto;
+    clear: both;
+}
+#z{
+    width: 350px;
+    background:  #0090ff;
+    float: left;
+    height:1100px;
+}
+#y{
+    width: 550px;
+    background:  #0f0ff0;
+    float: left;
+    height: 1100px;
+}
+#z1 {
+    height: 300px;
+    background: yellowgreen;
+}
+#z2 {
+    height: 800px;
+    background: gainsboro;
+}
+#tx{
+    background:  #ffff00;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    margin: auto;
+}
+#name {
+    background: gold;
+    height: 100px;
+}
+.name {
+    margin-left: 35px;
+    letter-spacing: 40px;
+    text-align: center;
+}
+.zimu {
+    text-align: center;
+    letter-spacing: 10px;
+}
+pre {
+    letter-spacing: 5px;
+}
