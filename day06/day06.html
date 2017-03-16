@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        /*absolute  绝对浮动
+          relative  相对浮动
+          fixed     固定浮动
+         */
+        #big {
+            width: 1000px;
+            height: 2000px;
+            margin:auto;
+            background: burlywood;
+            /*position: relative;*/
+        }
+        #a {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            background: red;
+            left:30px;
+        }
+        #b {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            background: rebeccapurple;
+            left:30px;
+
+        }
+        #c{
+            width: 300px;
+            height: 200px;
+            position: fixed;
+            background: rosybrown;
+            right:30px;
+            top: 30px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="big">
+    <div id="a">div1</div>
+    <div id="b">div2</div>
+    <div id="c">div3</div>
+</div>
+</body>
+</html>
