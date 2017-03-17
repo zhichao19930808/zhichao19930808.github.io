@@ -7,7 +7,7 @@
 <style>
     #big {
         width: 1000px;
-        height: 4000px;
+        height: 10000px;
         border-radius: 25px;
         margin: auto;
         background: burlywood;
@@ -33,17 +33,31 @@
 a:hover {
     color: red;
 }
+    h1 {
+        background: slateblue;
+        color: orange;
+        border-radius: 15px;
+    }
+    a {
+       text-decoration: none;
+        color: darkred;
+    }
 </style>
 <body>
 <div id="big">
     <div id="timu">
-        <h1>老师，还没写完呢，明天之前交给您</h1>
         <h1>CSS总结</h1>
     </div>
     <div id="a">
-        <ol style="font-size: 20px">
-            <li>
-                选择器
+<h2><a name="mulu">目录</a></h2>
+        <p><a href="#1">第一章 选择器</a></p>
+        <p><a href="#2">第二章 Css的继承，层叠，和特殊性</a></p>
+        <p><a href="#3">第三章 Css盒子模型</a></p>
+        <p><a href="#4">第四章 Css盒子模型</a></p>
+        <p><a href="#5">第五章 Css布局模型</a></p>
+        <div style="width: 70px;height: 20px;background-color: #888;position: fixed;bottom: 0;left:8%"><a href="#mulu">返回目录</a></div>
+
+               <h1 ><a name="1"> 第一章 选择器</a></h1>
                 <ul type="disc">
                     <li>每一条css样式声明（定义）由两部分组成，形式如下：<br><br>
                         选择器{<br><br>
@@ -53,19 +67,38 @@ a:hover {
                         在{}之前的部分就是“选择器”，“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素代码中的“body”就是选择器。
                     </li>
                     <li><h3>标签选择器</h3>
-                    <pre>
-                        标签选择器其实就是html代码中的标签。如右侧代码编辑器中的<html>、<body>、<h1>、<p>、<img>。
-例如下面代码：
-p{
-font-size:12px;
-line-height:1.6em;
-}
-
-上面的css样式代码的作用：为p标签设置12px字号，行间距设置1.6em的样式。
-                    </pre>
+                    <p>
+                        标签选择器其实就是html代码中的标签。如右侧代码编辑器中的html、body、h1、p、img。例如下面代码：<br>
+                        font-size:12px;line-height:1.6em;<br>
+                        上面的css样式代码的作用：<p style="font-size: 12px;line-height: 1.6em">为p标签设置12px字号，行间距设置1.6em的样式。</p>
+                    </p>
                     </li>
-                    <li><h3>类选择器</h3></li>
-                    <li><h3>ID选择器</h3></li>
+                    <li><h3>类选择器</h3>
+                    <p>类选择器在css样式编码中是最常用到的，代码编辑器中的代码:可以实现为“胆小如鼠”、“勇气”字体设置为红色。
+                        语法：
+                        .类选器名称{
+                        css样式代码;
+                        }
+                    </p>
+                        <dl><h5>注意：</h5>
+                           <dt> 1、英文圆点开头</dt>
+                           <dt> 2、其中类选器名称可以任意起名（但不要起中文噢）</dt>
+                            <dt>使用方法：</dt>
+                            <dd>第一步：使用合适的标签把要修饰的内容标记起来，如下：
+                                <span>胆小如鼠</span></dd>
+                           <dd> 第二步：使用class="类选择器名称"为标签设置一个类，如下：
+                               <span class="stress">胆小如鼠</span></dd>
+                           <dd> 第三步：设置类选器css样式，如下：
+                               .stress{color:red;}类前面要加入一个英文圆点</dd>
+                        </dl>
+                    </li>
+                    <li><h3>ID选择器</h3>
+                    <dl>
+                        <dt>在很多方面，ID选择器都类似于类选择符，但也有一些重要的区别：</dt>
+                       <dd> 1、为标签设置id="ID名称"，而不是class="类名称"。</dd>
+                      <dd>  2、ID选择符的前面是井号（#）号，而不是英文圆点（.）。</dd>
+                    </dl>
+                    </li>
                     <li>
                         <h3>标签选择器和类选择器的区别</h3>
                         <p>相同点：可以应用于任何元素</p>
@@ -86,8 +119,31 @@ line-height:1.6em;
                             这行代码会使class名为name下的子元素b（水果、蔬菜）加入红色实线边框。</p>
                         <p class="name">看这个<b>水果，蔬菜</b>加入了红色实线边框</p>
                     </li>
-                    <li><h3>包含后代选择器</h3></li>
-                    <li><h3>通用选择器</h3></li>
+                    <li><h3>包含后代选择器</h3>
+                    <dl>
+                        <dt>包含选择器，即加入空格,用于选择指定标签元素下的后辈元素。如下代码： </dt>
+                           <dd> .first span{</dd>
+                        <br>
+                             <dd>color:red;</dd>
+                        <br>
+                          <dd>  }</dd>
+                            这行代码会使第一段文字内容中的“胆小如鼠”字体颜色变为红色。
+                            请注意这个选择器与子选择器的区别，子选择器（child selector）仅是指它的直接后代，或者你可以理解为作用于子元素的第一代
+                        后代。而后代选择器是作用于所有子后代元素。后代选择器通过空格来进行选择，而子选择器是通过“>”进行选择。
+                            总结：<b>>作用于元素的第一代后代，空格作用于元素的所有后代。</b>
+                    </dl>
+                    </li>
+                    <li><h3>通用选择器</h3>
+                        <dl>
+                        <dt>通用选择器是功能最强大的选择器，它使用一个（*）号指定，它的作用是匹配html中所有标签元素，如下使用下面代码使用html中任意
+                            标签元素字体颜色全部设置为红色：</dt>
+                        <br>
+                       <dd> *{</dd>
+                        <br>
+                        <dd> color:red;</dd>
+                      <dd>  }</dd>
+                      </dl>
+                    </li>
                     <li><h3>伪类选择器</h3>
                     <p>
                         它允许给html不存在的标签（标签的某种状态）设置样式，比如说我们给html中一个标签元素的鼠标滑过的状态来设置字体颜色：
@@ -117,7 +173,7 @@ line-height:1.6em;
                     </li>
                 </ul>
             </li>
-            <li>Css的继承，层叠，和特殊性</li>
+           <h1><a name="2">第二章  Css的继承，层叠，和特殊性</a></h1>
             <ul type="disc">
                 <li>
                     <h3>继承</h3>
@@ -163,7 +219,7 @@ line-height:1.6em;
                     </p>
                 </li>
             </ul>
-            <li>CSS格式化排版</li>
+          <h1><a name="3">第三章 CSS格式化排版</a></h1>
             <ul type="disc">
                 <li><h3>文字排版 </h3>
                     <h5>字体</h5>
@@ -178,16 +234,203 @@ line-height:1.6em;
 
                 </p>
                     <h5>字号、颜色</h5>
+                    <p style="font-size: 12px;color: #666">可以使用下面代码设置网页中文字的字号为12像素，并把字体颜色设置为
+
+
+                        #666(灰色)：  body{font-size:12px;color:#666}
+                    </p>
                     <h5>粗体</h5>
                     <p style="font-weight: bold">p span{font-weight:bold;}
 
                         在这里大家可以看到，如果想为文字设置粗体是有单独的css样式来实现的，再
 
                         不用为了实现粗体样式而使用h1-h6或strong标签了。</p>
+                    <h5>斜体</h5>
+                    <p>以下代码可以实现文字以斜体样式在浏览器中显示：
+
+                        p a{font-style:italic;}
+
+                    <p style="font-style:italic">三年级时，我还是一个<a>胆小如鼠</a>的小女孩。</p>
+                    </p>
+                    <h5>下划线</h5>
+                    <p>有些情况下想为文字设置为下划线样式，这样可以在视觉上强调文字，可以使
+
+                        用下面代码来实现：
+
+                        p a{text-decoration:underline;}
+                    <p style="text-decoration:underline">三年级时，我还是一个<a>胆小如鼠</a>的小女孩。</p>
+                    </p>
+                    <h5>删除线</h5>
+                    <p>如果想在网页上设置删除线怎么办，这个样式在电商网站上常会见到 <img src="../img/del-line.png" alt="del"width="150"></p>
+                    <p style="text-decoration:line-through">上图中的原价上的删除线使用下面代码就可以实现：   .oldPrice{text-decoration:line-
+                        through;}</p>
+                    <h5>首行缩进</h5>
+                    <p>中文文字中的段前习惯空两个文字的空白，这个特殊的样式可以用下面代码来实现：
+                        p{text-indent:2em;}
+                    <p style="text-indent: 2em">1922年的春天，一个想要成名名叫尼克卡拉威（托比?马奎尔Tobey Maguire 饰）
+                        的作家，离开了美国中西部，来到了纽约。那是一个道德感渐失，爵士乐流行，走私为王，股票飞涨的时代。
+                        为了追寻他的美国梦，他搬入纽约附近一海湾居住。</p>
+
+                   <b> 注意：2em的意思就是文字的2倍大小。</b>
+                    </p>
+                    <h5>行高</h5>
+                    <p>这一小节我们来学习一下另一个在段落排版中起重要作用的行间距（行高）属性（line-height），
+                        如下代码实现设置段落行间距为1.5倍。
+                        p{line-height:2em;}
+                    <p style="line-height: 2em">菲茨杰拉德，二十世纪美国文学巨擘之一，兼具作家和编剧双重身份。他以诗人的敏感和戏剧家的想象为"爵士乐时代"吟
+                        唱华丽挽歌，其诗人和梦想家的气质亦为那个奢靡年代的不二注解。</p>
+                    </p>
+                    <h5>对齐</h5>
+                    <p>想为块状元素中的文本、图片设置居中样式吗？可以使用text-align样式代码，如下代码可实现文本居中显示。
+                        (那么什么是块状元素呢？在后面的11-1、11-2小节中会讲到。)<br>
+                        h6{     text-align:center; } <h6 style="text-align: center">了不起的盖茨比</h6>
+                    同样可以设置居左：  h6{     text-align:left; } <h6 style="text-align: left">了不起的盖茨比</h6>
+                    还可以设置居右：  h6{     text-align:right; } <h6 style="text-align: right">了不起的盖茨比</h6>
+                    </p>
                 </li>
             </ul>
-        </ol>
+            <h1><a name="4">第四章 Css盒子模型</a></h1>
+            <h3>元素分类</h3>
+            <dl>
+                <dt>在讲解CSS布局之前，我们需要提前知道一些知识，在CSS中，html中的标签元素大体被分为三种不同的类型：
+                    块状元素、内联元素(又叫行内元素)和内联块状元素。</dt>
+                   <dd>常用的块状元素有：div、ol、ul、dl、table、form</dd>
+                   <dd>常用的内联元素有：a、span、br、em、strong</dd>
+                   <dd>常用的内联块状元素有：img、input</dd>
+            </dl>
+            <h3>块级元素</h3>
+            <p>什么是块级元素？在html中div>、 p>、h1>、form>、ul> 和 li>就是块级元素。设置display:block就是将元素显示为块级元素
+                。如下代码就是将内联元素a转换为块状元素，从而使a元素具有块状元素特点。  a{display:block;}<br>
+                <b>块级元素特点：</b><br>
+                1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行） <br>
+                2、元素的高度、宽度、行高以及顶和底边距都可设置。 <br>
+                3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。<br>
+            </p>
+            <h3>内联元素</h3>
+            <p>在html中，span>、a>、 strong> 和em>就是典型的内联元素（行内元素）（inline）元素。
+                当然块状元素也可以通过代码display:inline将元素设置为内联元素。如下代码就是将块状元素div转换为内联元素，
+                从而使 div 元素具有内联元素特点。   div{      display:inline;  }  ......
+            <div style="display:inline">我要变成内联元素</div> <b>内联元素特点：</b><br>
+            1、和其他元素都在一行上； <br>
+            2、元素的高度、宽度及顶部和底部边距不可设置； <br>
+            3、元素的宽度就是它包含的文字或图片的宽度，不可改变。<br>
+            </p>
+            <h3>内联块级元素</h3>
+            <p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点，代码display:inline-block就是将元素设置为内联块状元素。
+                (css2.1新增)，img>input>,标签就是这种内联块状标签。 <br> <b>inline-block 元素特点：</b> <br>
+                1、和其他元素都在一行上；<br>
+                2、元素的高度、宽度、行高以及顶和底边距都可设置
+            </p>
+            <h3>边框</h3>
+            <p>盒子模型的边框就是围绕着内容及补白的线，这条线你可以设置它的粗细、样式和颜色(边框三个属性)。
+                如下面代码为 div 来设置边框粗细为 2px、样式为实心的、颜色为红色的边框：  div{     border:2px  solid  red; }
+                上面是 border 代码的缩写形式，可以分开写：  div{     border-width:2px;     border-style:solid;     border-color:red; }
+                <br><b>注意：</b><br>
+                1、border-style（边框样式）常见样式有：  dashed（虚线）| dotted（点线）| solid（实线）。 <br>
+                2、border-color（边框颜色）中的颜色可设置为十六进制颜色，如:  border-color:#888;//前面的井号不要忘掉。<br>
+                3、border-width（边框宽度）中的宽度也可以设置为：  thin | medium | thick（但不是很常用），最常还是用象素（px）。<br>
+            </p>
+            <div><b>现在有一个问题，</b>如果有想为 p 标签单独设置下边框，
+                而其它三边都不设置边框样式怎么办呢？<br>
+                css 样式中允许只为一个方向的边框设置样式：<br>
+               <p style="text-align: center"> div{border-bottom:1px solid red;}</p>
+                同样可以使用下面代码实现其它三边(上、右、左)边框的设置：<br>
+                <p style="text-align: center">border-top:1px solid red; border-right:1px solid red;border-left:1px solid red;</p>
+            </div>
+            <h3>宽度和高度</h3>
+            <p>盒模型宽度和高度和我们平常所说的物体的宽度和高度理解是不一样的，css内定义的宽（width）和高（height），指的是填充以里的内容范围。
+                因此一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。
+            </p>
+            <h3>填充</h3>
+        <p>元素内容与边框之间是可以设置距离的，称之为“填充”。填充也可分为上、右、下、左(顺时针)。如下代码：<br>
+            <p style="padding:20px 10px 15px 30px;">div{padding:20px 10px 15px 30px;}</p>
+            顺序一定不要搞混。可以分开写上面代码：<br>
+            div{    padding-top:20px;    padding-right:10px;    padding-bottom:15px;    padding-left:30px; } <br>
+            可以这么写  <p style="padding: 10px;">div{padding:10px;}</p>
+            如果上下填充一样为10px，左右一样为20px，可以这么写：  div{padding:10px 20px;}<br>
+        </p>
+        <h3>边界</h3>
+        <p>元素与其它元素之间的距离可以使用边界（margin）来设置。边界也是可分为上、右、下、左。<br>
+            <div style="margin: 20px 10px 15px 30px;">如下代码：  div{margin:20px 10px 15px 30px;} </div>
+            也可以分开写：  div{    margin-top:20px;    margin-right:10px;    margin-bottom:15px;    margin-left:30px; }
+           <div style="margin: 10px;"> 如果上右下左的边界都为10px;可以这么写：  div{ margin:10px;} </div>
+           <div style="margin: 10px 20px;"> 如果上下边界一样为10px，左右一样为20px，可以这么写：  div{ margin:10px 20px;} </div>
+            总结一下：padding和margin的区别，padding在边框里，margin在边框外。
+        </p>
+        <h1><a name="5">第五章 Css布局模型</a></h1>
+        <p>如果说布局模型是本，那么 CSS 布局模板就是末了，是外在的表现形式。  CSS包含3种基本的布局模型，用英文概括为：Flow、Layer
+            和 Float。 在网页中，元素有三种布局模型：<b> 1、流动模型（Flow） 2、浮动模型 (Float) 3、层模型（Layer）</b>  这三个布局模型究竟是
+            什么布局？</p>
+        <h3>流动模型</h3>
+        <p>先来说一说流动模型，流动（Flow）是默认的网页布局模式。也就是说网页在默认状态下的 HTML 网页元素都是根据流动模型来分布网页内容的。
+            流动布局模型具有2个比较典型的特征： <br>
+            第一点，块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，因为在默认状态下，块状元素的宽度都为100%。实际上，块状元素都会
+            以行的形式占据位置。<br>
+            第二点，在流动模型下，内联元素都会在所处的包含元素内从左到右水平分布显示。（内联元素可不像块状元素这么霸道独占一行 <br>
+        </p>
+        <h3>浮动模型</h3>
+        <div style="width: 1000px;height: 300px;background-color: slategray">
+            <p>块状元素这么霸道都是独占一行，如果现在我们想让两个块状元素并排显示，怎么办呢？<br>
+            不要着急，设置元素浮动就可以实现这一愿望。  任何元素在默认情况下是不能浮动的，
+            但可以用 CSS 定义为浮动，如 div、p、table、img 等元素都可以被定义为浮动。
+            如下代码可以实现两个 div 元素一行显示。
+            div{     width:200px;     height:200px;     border:2px red solid;     float:left; }
+            <div style="width: 200px;height: 200px;border: 2px red solid;float:left;">第一个div</div>
+            <div style="width: 200px;height: 200px;border: 2px red solid;float:left;">第二个div</div>
+        </p></div>
+        <div style="width: 1000px;height: 300px;background-color: olivedrab;">
+        <p>当然你也可以同时设置两个元素右浮动也可以实现一行显示。<br>
+        div{     width:200px;     height:200px;     border:2px red solid;     float:right; }
+        <div style="width: 200px;height: 200px;border: 2px red solid;float:right;">第三个div</div>
+        <div style="width: 200px;height: 200px;border: 2px red solid;float:right;">第四个div</div>
+        </p></div>
+        <div style="width: 1000px;height: 300px;background-color: #0090ff;">
+        <p>又有小伙伴问了，设置两个元素一左一右可以实现一行显示吗？<br>
+        当然可以：  div{     width:200px;     height:200px;     border:2px red solid; } #div1{float:left;} #div2{float:right;}
+        <div style="width: 200px;height: 200px;border: 2px red solid;float:left;">第五个div</div>
+        <div style="width: 200px;height: 200px;border: 2px red solid;float:right;">第六个div</div>
+
+            </p></div>
+        <h3>层模型</h3>
+        <p>什么是层布局模型？</p>
+        <p>
+            层布局模型就像是图像软件PhotoShop中非常流行的图层编辑功能一样，每个图层能够精确定位操作
+            ，但在网页设计领域，由于网页大小的活动性，层布局没能受到热捧。但是在网页上局部使用层布局还是有其方便之处的。
+            </p><p>
+            下面我们来学习一下html中的层布局。  如何让html元素在网页中精确定位，就像图像软件PhotoShop中的图层一样可以对每个图层能够精确定位操作。
+            CSS定义了一组定位（positioning）属性来支持层布局模型。<b>层模型有三种形式：
+            1、绝对定位(position: absolute)  2、相对定位(position: relative)  3、固定定位(position: fixed)</b>
+        </p>
+        <h4>绝对定位</h4>
+        <p>如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，
+            然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。
+            如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。
+    </p>
+        <div style="width: 1000px;height: 250px;position: relative;background: green;">
+        <div style="width: 700px;height: 200px;background-color:burlywood;border: 2px red solid;position: absolute;left: 100px;top: 50px"> 如这个面代码可以实现div元素相对于浏览器窗口向右移动100px，向下移动50px。
+    div{     width:200px;     height:200px;     border:2px red solid;     position:absolute;     left:100px;     top:50px; }</div>
     </div>
-</div>
+
+    <h4>相对定位</h4>
+    <p>如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），
+        它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。
+        相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，
+        移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。
+     </p>
+    <div style="width: 1000px;height: 250px;position: relative;background: green;">
+    <div style=" width:700px;height:200px; background:gold;border:2px red solid; position:absolute; left:100px; top:50px;"> 如下代码实现相对于以前位置向下移动50px，向右移动100px;
+    #div1{     width:200px;     height:200px;     border:2px red solid;     position:relative;     left:100px;     top:50px; }  </div></div>
+        <p><b>虽然div元素相对于以前的位置产生了偏移，但是div元素以前的位置还是保留着</b></p>
+        <h4>固定定位</h4>
+        <p>fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。
+            由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，
+            因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。
+            如屏幕左侧的返回目录</p>
+        <p><b>使用position:absolute可以实现被设置元素相对于浏览器（body）设置定位,但是必须遵守下面规范：</b></p>
+        <p><b>1、参照定位的元素必须是相对定位元素的前辈元素：</b></p>
+        <p><b>2、参照定位的元素必须加入position:relative;</b></p>
+        <p><b>3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。</b></p>
+
+</div></div>
 </body>
 </html>
